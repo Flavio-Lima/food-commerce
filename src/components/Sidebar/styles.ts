@@ -5,7 +5,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.aside<ContainerProps>`
-  background-color: ${(props) => props.theme.colors.red};
+  background-color: ${({theme}) => theme.colors.red};
 
   ${({isMenuOpen}) =>
     isMenuOpen
@@ -16,9 +16,6 @@ export const Container = styled.aside<ContainerProps>`
         width: 7.75rem;
       `
   }
-
-  /*width: 7.75rem;*/
-
   padding: 2rem 0;
   overflow: hidden;
 
@@ -33,6 +30,7 @@ export const Container = styled.aside<ContainerProps>`
     width: 100%;
     border: none;
   }
+
 
   nav {
     flex: 1;
@@ -59,7 +57,7 @@ export const Container = styled.aside<ContainerProps>`
         gap: 2rem;
 
         svg {
-          fill: ${(props) => props.theme.colors.white};
+          fill: ${({theme}) => theme.colors.white};
           width: 4rem;
           height: 4rem;
           transition: fill 0.3s;
@@ -88,14 +86,62 @@ export const Container = styled.aside<ContainerProps>`
           }
 
           svg {
-            fill: ${(props) => props.theme.colors.yellow};
+            fill: ${({theme}) => theme.colors.yellow};
           }
 
           span{
-            color: ${(props) => props.theme.colors.yellow};
+            color: ${({theme}) => theme.colors.yellow};
           }
         }
       }
     }
   }
-`
+
+  @media screen and (max-width: 720px) {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+
+    width: 100%;
+    height: 5rem;
+    padding: 0 0;
+    overflow-y: auto;
+
+    button {
+      display: none;
+    }
+
+    nav {
+      height: 100%;
+
+      ul {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      li {
+        a{
+          flex-direction: column;
+          padding: 0rem;
+
+          svg {
+            width: 3.25rem;
+            height: 3.25rem;
+          }
+
+          span {
+            display: none;
+          }
+
+          &.active {
+            &::after{
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  `
