@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom'
 
-import { SnackProvider } from './context/SnackContext'
+import { SnackProvider } from './contexts/SnackContext'
 import { AppRoutes } from './routes'
 
 import { Normalize } from 'styled-normalize'
