@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { SnackData } from '../Interfaces/SnackDate'
+import { SnackData } from '../Interfaces/SnackData'
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
