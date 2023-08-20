@@ -1,5 +1,6 @@
 import { FaTrashAlt } from 'react-icons/fa'
 import { useCart } from "../../../../hooks/useCart";
+import { ConfirmOrder } from '../../../../components/ConfirmOrder';
 
 import { currencyFormat } from "../../../../helpers/currencyFormat";
 
@@ -65,6 +66,7 @@ export function TableDesktop() {
           ))}
         </tbody>
       </table>
+      <ConfirmOrder />
     </Container>
   )
 }
