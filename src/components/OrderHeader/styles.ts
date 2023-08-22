@@ -7,8 +7,16 @@ export const Container = styled.header`
   align-items: center;
   justify-content: space-between;
 
+  @media (max-width: 374px){
+   flex-direction: column;
+  }
+
   img{
     width: 8rem;
+
+    @media (max-width: 374px){
+      margin-bottom: 2rem;
+    }
   }
 
   > div {
