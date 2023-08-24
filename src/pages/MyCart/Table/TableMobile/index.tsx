@@ -7,7 +7,7 @@ import { Container } from "./style"
 
 import minusImg  from '../../../../assets/circle-minus.svg'
 import plusImg  from '../../../../assets/circle-plus.svg'
-import { ConfirmOrder } from '../../../../components/ConfirmOrder'
+import { ConfirmOrder } from '../../../../components/OrderCloseAction/ConfirmOrder'
 
 export function TableMobile() {
   const { cart, removeSnackFromCart, snackCartIncrement, snackCartDecrement } = useCart()
