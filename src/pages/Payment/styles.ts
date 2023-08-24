@@ -6,11 +6,13 @@ export const Container = styled.div`
   padding: 2rem;
   margin: 0 auto;
 `
+
 export const Inner = styled.main`
-  background: ${({theme}) => theme.colors.black};
+  background: ${({ theme }) => theme.colors.black};
   padding: 2rem 2.5rem;
   border-radius: 8px;
 `
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -38,14 +40,15 @@ export const Form = styled.form`
 
   label {
     display: block;
-    color: ${({theme}) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.white};
     margin-bottom: 0.5rem;
   }
 
   input[type='email'],
   input[type='number'],
   input[type='tel'],
-  input[type='text'] {
+  input[type='text'],
+  select {
     flex-grow: 1;
     background-color: ${({ theme }) => theme.colors.gray800};
     color: ${({ theme }) => theme.colors.white};
