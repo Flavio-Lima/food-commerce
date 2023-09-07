@@ -6,7 +6,7 @@ import PizzasPage from './pages/Main/Pizzas'
 import DrinksPage from './pages/Main/Drinks'
 import DessertsPage from './pages/Main/Desserts'
 import MyCartPage from './pages/MyCart'
-import Payment from './pages/Payment'
+import Payment from './pages/Payment/'
 
 export function AppRoutes() {
   return (
