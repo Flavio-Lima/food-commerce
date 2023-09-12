@@ -2,16 +2,20 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { IMask, IMaskInput } from 'react-imask'
 
+import { CustomerData } from '../../Interfaces/CustomerData'
 
 import { Head } from '../../components/Head'
 import { PayOrder } from '../../components/OrderCloseAction/PayOrder'
 import { OrderHeader } from '../../components/OrderHeader'
+
+import { useCart } from '../../hooks/useCart'
 
 import { FieldValues, schema } from './validationSchema'
 
 import { Container, Form, Inner } from './styles'
 
 export default function Payment() {
+  const { payOrder } = useCart()
   const {
     control,
     handleSubmit,
@@ -19,7 +23,7 @@ export default function Payment() {
   } = useForm<FieldValues>({
     resolver: yupResolver(schema),
   })
-  const onSubmit: SubmitHandler<FieldValues> = (data) => console.log('data', data)
+  const onSubmit: SubmitHandler<FieldValues> = (data) => payOrder(data as CustomerData)
 
   return (
     <Container>
@@ -36,7 +40,7 @@ export default function Payment() {
               name='fullName'
               control={control}
               render={({ field }) => (
-                <input type='text' id='fullName' autoComplete='name' {...field} />
+                <input type='text' id='fullName' autoComplete='name' autoFocus  {...field} />
               )}
             />
 
@@ -51,7 +55,7 @@ export default function Payment() {
                 name='email'
                 control={control}
                 render={({ field }) => (
-                  <input type='email' id='email' autoComplete='email' {...field} />
+                  <input type='email' id='email' autoComplete='email' autoFocus {...field} />
                 )}
               />
 
@@ -69,6 +73,7 @@ export default function Payment() {
                     id='mobile'
                     autoComplete='phone'
                     mask={'(00) 90000-0000'}
+                    autoFocus
                     {...field}
                   />
                 )}
@@ -89,6 +94,7 @@ export default function Payment() {
                       { mask: '000.000.000-00', max: 11 },
                       { mask: '00.000.000/0000-00' },
                     ]}
+                    autoFocus
                     {...field}
                   />
                 )}
@@ -110,6 +116,7 @@ export default function Payment() {
                   id='zipCode'
                   style={{ width: '120px' }}
                   mask={'00000-000'}
+                  autoFocus
                   {...field}
                 />
               )}
@@ -122,7 +129,7 @@ export default function Payment() {
             <Controller
               name='street'
               control={control}
-              render={({ field }) => <input type='text' id='street' {...field} />}
+              render={({ field }) => <input type='text' id='street' autoFocus {...field} />}
             />
             {errors.street && <p className='error'>{errors.street.message}</p>}
           </div>
@@ -133,7 +140,7 @@ export default function Payment() {
               <Controller
                 name='number'
                 control={control}
-                render={({ field }) => <input type='text' id='number' {...field} />}
+                render={({ field }) => <input type='text' id='number' autoFocus {...field} />}
               />
               {errors.number && <p className='error'>{errors.number.message}</p>}
             </div>
@@ -143,7 +150,7 @@ export default function Payment() {
               <Controller
                 name='complement'
                 control={control}
-                render={({ field }) => <input type='text' id='complement' {...field} />}
+                render={({ field }) => <input type='text' id='complement' autoFocus {...field} />}
               />
               {errors.complement && <p className='error'>{errors.complement.message}</p>}
             </div>
@@ -155,7 +162,7 @@ export default function Payment() {
               <Controller
                 name='neighborhood'
                 control={control}
-                render={({ field }) => <input type='text' id='neighborhood' {...field} />}
+                render={({ field }) => <input type='text' id='neighborhood' autoFocus {...field} />}
               />
               {errors.neighborhood && <p className='error'>{errors.neighborhood.message}</p>}
             </div>
@@ -165,7 +172,7 @@ export default function Payment() {
               <Controller
                 name='city'
                 control={control}
-                render={({ field }) => <input type='text' id='city' {...field} />}
+                render={({ field }) => <input type='text' id='city' autoFocus {...field} />}
               />
               {errors.city && <p className='error'>{errors.city.message}</p>}
             </div>
@@ -235,7 +242,9 @@ export default function Payment() {
                     {
                       mask: '0000 0000 0000 0000',
                     },
+
                   ]}
+                  autoFocus
                   {...field}
                 />
               )}
@@ -248,7 +257,7 @@ export default function Payment() {
             <Controller
               name='creditCardHolder'
               control={control}
-              render={({ field }) => <input type='text' id='creditCardHolder' {...field} />}
+              render={({ field }) => <input type='text' id='creditCardHolder' autoFocus {...field} />}
             />
             {errors.creditCardHolder && <p className='error'>{errors.creditCardHolder.message}</p>}
           </div>
@@ -280,6 +289,7 @@ export default function Payment() {
                         },
                       },
                     ]}
+                    autoFocus
                     {...field}
                   />
                 )}
@@ -293,7 +303,7 @@ export default function Payment() {
                 name='creditCardSecurityCode'
                 control={control}
                 render={({ field }) => (
-                  <IMaskInput type='text' id='creditCardSecurityCode' mask={'0000'} {...field} />
+                  <IMaskInput type='text' id='creditCardSecurityCode' mask={'0000'} autoFocus {...field} />
                 )}
               />
               {errors.creditCardSecurityCode && (
