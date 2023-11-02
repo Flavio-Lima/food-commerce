@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { IMask, IMaskInput } from 'react-imask'
 
-import { CustomerData } from '../../Interfaces/CustomerData'
+import { CustomerData } from '../../interfaces/CustomerData'
 
 import { Head } from '../../components/Head'
 import { PayOrder } from '../../components/OrderCloseAction/PayOrder'

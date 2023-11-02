@@ -1,7 +1,7 @@
 import { FiPlus } from 'react-icons/fi'
 
 import { currencyFormat } from '../../helpers/currencyFormat'
-import { SnackData } from '../../Interfaces/SnackData'
+import { SnackData } from '../../interfaces/SnackData'
 import { useCart } from '../../hooks/useCart'
 
 import { SkeletonSnack } from './SkeletonSnack'
